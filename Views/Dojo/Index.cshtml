@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Dojodachi</title>
+    </head>
+    <body>
+        <center>
+        <table>
+            <tr>
+                <td>Fullness: @ViewBag.Dachi.fullness</td>
+                <td>Happiness: @ViewBag.Dachi.happiness</td>
+                <td>Meals: @ViewBag.Dachi.meals</td>
+                <td>Energy: @ViewBag.Dachi.energy</td>
+            </tr>
+        </table>
+        <p>@ViewBag.message</p><br>
+        @{if(ViewBag.Dachi.happiness > 0 && ViewBag.Dachi.happiness < 100 && ViewBag.Dachi.fullness > 0 && ViewBag.Dachi.fullness < 100 && ViewBag.Dachi.energy < 100)
+            {   
+                <a href="/feed"><button>Feed</button></a>
+                <a href="/play"><button>Play</button></a>
+                <a href="/work"><button>Work</button></a>
+                <a href="/sleep"><button>Sleep</button></a>
+            }
+            if(ViewBag.Dachi.fullness > 99 && ViewBag.Dachi.happiness > 99 && ViewBag.Dachi.energy > 99)
+            {
+                <a href="/restart"><button>Play Again!</button></a>
+            }
+            if(ViewBag.Dachi.happiness < 1 || ViewBag.Dachi.fullness < 1)
+            {
+                <a href="/restart"><button>Play Again!</button></a>
+            }
+        }
+        </center>
+    </body>
+</html>
